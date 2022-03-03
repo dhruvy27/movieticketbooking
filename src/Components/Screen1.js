@@ -2,6 +2,14 @@ import React from "react";
 import Accordion from "./Acordion";
 
 
+// const data =[{
+//     id:1,
+//     name:movie1,
+//     hall:{
+        
+//     }
+// }]
+
 function Screen1(){
     return(
         <div>
