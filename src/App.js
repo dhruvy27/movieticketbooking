@@ -12,7 +12,7 @@ import './App.css';
 function App() {
   return (
     <Router>
-      <h1>Hello</h1>
+      <h1>Movie List</h1>
       <Routes>
         <Route path = "/" element={<Screen1/>}/>
         <Route path = "/screen2" element={<Screen2/>}/>
