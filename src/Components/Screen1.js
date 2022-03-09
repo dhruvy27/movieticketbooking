@@ -1,21 +1,25 @@
-import React from "react";
+import React, { useEffect } from "react";
 import Accordion from "./Acordion";
-
-
-// const data =[{
-//     id:1,
-//     name:movie1,
-//     hall:{
-        
-//     }
-// }]
+import {useSelector, useDispatch} from 'react-redux'
+import {addAllMovie} from '../store/booking'
+import data from '../data.json'
 
 function Screen1(){
+    const dispatch = useDispatch()
+    const store = useSelector((element)=>{ return element.allItem })
+    
+    
+    useEffect(()=>{dispatch(addAllMovie({
+        allItem:data
+    }))},[])
     return(
         <div>
-            <Accordion moviename={"Movie 1"} hallname={"hall 1"} />
-            <Accordion moviename={"Movie 2"} hallname={"hall 2"} />
-            <Accordion moviename={"Movie 3"} hallname={"hall 3"} />
+            {store.map((element)=>{
+                console.log(element)
+                return(
+                <Accordion key ={element.movie_id} moviename={element.name} hallname={element.cinema_halls}></Accordion>
+                )
+            })}
         </div>
     )
 }

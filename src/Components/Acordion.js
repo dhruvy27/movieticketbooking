@@ -3,14 +3,26 @@ import React from "react";
 import { propTypes } from "react-bootstrap/esm/Image";
 import Collapsible from 'react-collapsible';
 import  './Accordion.css';
+import {Link,useSearchParams} from 'react-router-dom'
+
+
+
+export function dhruv(element){
+    console.log(element)
+    return element
+}
 
 function Accordion({moviename,hallname}){
+
     return(
         <Collapsible className="Accordion" trigger={moviename}>
             <ul>
-                <li>{hallname}</li>
-                <li>{hallname}</li>
-                <li>{hallname}</li>
+                {hallname.map((element)=>{
+                    const url ="/screen2?hallName=" + element.name + "&&moviename="+moviename
+                    return(
+                        <li key={element.hall_id} onClick={()=>dhruv(element)}><Link to={url} >{element.name}</Link></li>
+                    // <li key={element.id}><Link to={url} >{element.name}</Link></li>
+                )})}
             </ul>
         </Collapsible>
     )
