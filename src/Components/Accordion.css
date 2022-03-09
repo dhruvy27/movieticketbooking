@@ -1,6 +1,10 @@
 
 .Collapsible {
   background-color:rgb(158, 190, 190);
+  width: 40%;
+  position: relative;
+  left:30%;
+  justify-content: center;
 }
 
 .Collapsible__contentInner {
@@ -75,4 +79,11 @@
   font-size: 12px;
   background-color: rgb(158, 190, 190);
   color: black;
+}
+
+.header{
+  /* position: relative;
+  left: 43%; */
+  justify-content: center;
+  text-align: center;
 }

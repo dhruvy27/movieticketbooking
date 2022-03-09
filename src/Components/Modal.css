@@ -1,18 +1,20 @@
 .modal{
-    background-color: aqua;
+    background-color: rgb(36, 37, 37);
     position: fixed;
     top: 0;
-    left: 0;
+    left:0;
     bottom: 0;
-    right: 0;
+    right:0;
     display: flex;
     align-items: center;
     justify-content: center;
+    opacity: 0.9;
+    
 }
 
 .modal-content{
     width: 500px;
-    background-color: #fff;
+    background-color: rgb(129, 126, 126);
 }
 
 .modal-header,.modal-footer{
@@ -27,5 +29,7 @@
     padding: 10px;
     border-top: 1px solid #eee;
     border-bottom: 1px solid #eee;
+    display: flex;
+    justify-content: center;
 }
 

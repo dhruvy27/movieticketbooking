@@ -3,6 +3,7 @@ import Accordion from "./Acordion";
 import {useSelector, useDispatch} from 'react-redux'
 import {addAllMovie} from '../store/booking'
 import data from '../data.json'
+import  './Accordion.css';
 
 function Screen1(){
     const dispatch = useDispatch()
@@ -14,6 +15,7 @@ function Screen1(){
     }))},[])
     return(
         <div>
+            <h1 class="header">Movie List</h1>
             {store.map((element)=>{
                 console.log(element)
                 return(
