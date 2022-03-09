@@ -30,7 +30,6 @@ function Seats({
       selectedSeat = [...selectedSeat, seat_info.seat_id];
       console.log(selectedSeat);
       setSelectedSeat(selectedSeat);
-
     }
   };
 

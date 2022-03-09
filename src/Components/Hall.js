@@ -42,7 +42,7 @@ function Hall(props) {
           );
         })}
       </div>
-      <img src={pic} className="screen" />
+      <div className="screen"><img src={pic}/></div>
       <div className="main-div">
         <Cart selectedSeat={selectedSeat} onCard={onCard}></Cart>
       </div>

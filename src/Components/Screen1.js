@@ -15,7 +15,7 @@ function Screen1(){
     }))},[])
     return(
         <div>
-            <h1 class="header">Movie List</h1>
+            <h1 class="header">Watch Movies</h1>
             {store.map((element)=>{
                 console.log(element)
                 return(

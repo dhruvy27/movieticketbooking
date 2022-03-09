@@ -6,7 +6,7 @@
       "cinema_halls": [
         {
           "hall_id": 10,
-          "name": "Movie1hall_1",
+          "name": "PVR",
           "seats": [
             {
               "seat_id": 1,
@@ -54,7 +54,7 @@
 
         {
             "hall_id": 20,
-            "name": "Movie1hall_2",
+            "name": "Carnival",
             "seats": [
               {
                 "seat_id": 1,
@@ -75,13 +75,34 @@
                 {
                   "seat_id": 5,
                   "status":"available" 
-                }
+                },
+                {
+                  "seat_id": 6,
+                  "status":"available" 
+                },
+                {
+                    "seat_id": 7,
+                    "status":"unavailable"
+                  },
+                  {
+                    "seat_id": 8,
+                    "status":"available" 
+                  },
+                  {
+                    "seat_id": 9,
+                    "status":"available"  
+                  },
+                  {
+                    "seat_id": 10,
+                    "status":"unavailable" 
+                  }
+  
             ]
           },
 
           {
             "hall_id": 30,
-            "name": "Movie1hall_3",
+            "name": "IMAX",
             "seats": [
               {
                 "seat_id": 1,
@@ -102,7 +123,28 @@
                 {
                   "seat_id": 5,
                   "status":"available" 
-                }
+                },
+                {
+                  "seat_id": 6,
+                  "status":"available" 
+                },
+                {
+                    "seat_id": 7,
+                    "status":"unavailable"
+                  },
+                  {
+                    "seat_id": 8,
+                    "status":"available" 
+                  },
+                  {
+                    "seat_id": 9,
+                    "status":"available"  
+                  },
+                  {
+                    "seat_id": 10,
+                    "status":"unavailable" 
+                  }
+  
             ]
           }
       ]
@@ -110,11 +152,11 @@
 
     {
         "movie_id": 2,
-        "name": "Movie_2",
+        "name": "Inception",
         "cinema_halls": [
           {
             "hall_id": 10,
-            "name": "Movie2hall_1",
+            "name": "PVR",
             "seats": [
               {
                 "seat_id": 1,
@@ -135,13 +177,34 @@
                 {
                   "seat_id": 5,
                   "status":"available" 
-                }
+                },
+                {
+                  "seat_id": 6,
+                  "status":"available" 
+                },
+                {
+                    "seat_id": 7,
+                    "status":"unavailable"
+                  },
+                  {
+                    "seat_id": 8,
+                    "status":"available" 
+                  },
+                  {
+                    "seat_id": 9,
+                    "status":"available"  
+                  },
+                  {
+                    "seat_id": 10,
+                    "status":"unavailable" 
+                  }
+  
             ]
           },
   
           {
               "hall_id": 20,
-              "name": "Movie2hall_2",
+              "name": "Carnival",
               "seats": [
                 {
                   "seat_id": 1,
@@ -162,13 +225,34 @@
                   {
                     "seat_id": 5,
                     "status":"available" 
-                  }
+                  },
+                  {
+                    "seat_id": 6,
+                    "status":"available" 
+                  },
+                  {
+                      "seat_id": 7,
+                      "status":"unavailable"
+                    },
+                    {
+                      "seat_id": 8,
+                      "status":"available" 
+                    },
+                    {
+                      "seat_id": 9,
+                      "status":"available"  
+                    },
+                    {
+                      "seat_id": 10,
+                      "status":"unavailable" 
+                    }
+    
               ]
             },
             
             {
               "hall_id": 30,
-              "name": "Movie2hall_3",
+              "name": "IMAX",
               "seats": [
                 {
                   "seat_id": 1,
@@ -189,7 +273,28 @@
                   {
                     "seat_id": 5,
                     "status":"available" 
-                  }
+                  },
+                  {
+                    "seat_id": 6,
+                    "status":"available" 
+                  },
+                  {
+                      "seat_id": 7,
+                      "status":"unavailable"
+                    },
+                    {
+                      "seat_id": 8,
+                      "status":"available" 
+                    },
+                    {
+                      "seat_id": 9,
+                      "status":"available"  
+                    },
+                    {
+                      "seat_id": 10,
+                      "status":"unavailable" 
+                    }
+    
               ]
             }
         ]
@@ -197,11 +302,11 @@
       
       {
         "movie_id": 3,
-        "name": "Movie_3",
+        "name": "URI",
         "cinema_halls": [
           {
             "hall_id": 10,
-            "name": "Movie3hall_1",
+            "name": "PVR",
             "seats": [
               {
                 "seat_id": 1,
@@ -222,13 +327,34 @@
                 {
                   "seat_id": 5,
                   "status":"unavailable"
-                }
+                },
+                {
+                  "seat_id": 6,
+                  "status":"available" 
+                },
+                {
+                    "seat_id": 7,
+                    "status":"unavailable"
+                  },
+                  {
+                    "seat_id": 8,
+                    "status":"available" 
+                  },
+                  {
+                    "seat_id": 9,
+                    "status":"available"  
+                  },
+                  {
+                    "seat_id": 10,
+                    "status":"unavailable" 
+                  }
+  
             ]
           },
   
           {
               "hall_id": 20,
-              "name": "Movie3hall_2",
+              "name": "Carnival",
               "seats": [
                 {
                   "seat_id": 1,
@@ -249,13 +375,34 @@
                   {
                     "seat_id": 5,
                     "status":"unavailable" 
-                  }
+                  },
+                  {
+                    "seat_id": 6,
+                    "status":"available" 
+                  },
+                  {
+                      "seat_id": 7,
+                      "status":"unavailable"
+                    },
+                    {
+                      "seat_id": 8,
+                      "status":"available" 
+                    },
+                    {
+                      "seat_id": 9,
+                      "status":"available"  
+                    },
+                    {
+                      "seat_id": 10,
+                      "status":"unavailable" 
+                    }
+    
               ]
             },
             
             {
               "hall_id": 30,
-              "name": "Movie3hall_3",
+              "name": "IMAX",
               "seats": [
                 {
                   "seat_id": 1,
@@ -276,7 +423,28 @@
                   {
                     "seat_id": 5,
                     "status":"available" 
-                  }
+                  },
+                  {
+                    "seat_id": 6,
+                    "status":"available" 
+                  },
+                  {
+                      "seat_id": 7,
+                      "status":"unavailable"
+                    },
+                    {
+                      "seat_id": 8,
+                      "status":"available" 
+                    },
+                    {
+                      "seat_id": 9,
+                      "status":"available"  
+                    },
+                    {
+                      "seat_id": 10,
+                      "status":"unavailable" 
+                    }
+    
               ]
             }
         ]
