@@ -41,7 +41,7 @@ function Seats({
           {seat_info.seat_id}{" "}
         </div>
       ) : seat_info.status === "unavailable" ? (
-        <div className="seat" id="seat" style={{ backgroundColor: "#545454" }}>
+        <div className="seat" id="seat" style={{ backgroundColor: "grey" }}>
           {seat_info.seat_id}
         </div>
       ) : (

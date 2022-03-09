@@ -20,6 +20,7 @@ function Hall(props) {
         setShow(false);
         setOnCard(selectedSeat);
         setSelectedSeat([])
+        alert('Payment Successfull')
     }
   };
   return (
