@@ -14,10 +14,10 @@ export default function Modal(props) {
         <div className="modal-body">
           <form>
             <label>Card No.</label>
-            <input type="text" id='cardnum'></input>
+            <input type="text" id='cardnum' required></input>
             <br />
             <label>CVV No.</label>
-            <input type="text"></input><br />
+            <input type="text" id="cvv" required></input><br />
             <button onClick={(e) => props.onCreditCardSubmit(e)}>Submit</button>
           </form>
         </div>

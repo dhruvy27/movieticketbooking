@@ -7,8 +7,6 @@ function Seats({
   setSelectedSeat,
   seat_info,
   selectedSeat,
-  hall_id,
-  movie_id,
   onCard,
 }) {
   const dispatch = useDispatch();
@@ -26,7 +24,7 @@ function Seats({
 
     } else {
       event.target.style.backgroundColor = "green";
-      // selectedSeat.push(seat_info.seat_id)
+
       selectedSeat = [...selectedSeat, seat_info.seat_id];
       console.log(selectedSeat);
       setSelectedSeat(selectedSeat);
@@ -36,7 +34,7 @@ function Seats({
   return (
     <div>
       {/* {console.log(onCard)} */}
-      {onCard.filter((ele) => ele == seat_info.seat_id).length == 1 ? (
+      {onCard.filter((element) => element == seat_info.seat_id).length == 1 ? (
         <div className="seat" id="seat" style={{ backgroundColor: "grey" }}>
           {seat_info.seat_id}{" "}
         </div>
@@ -45,13 +43,7 @@ function Seats({
           {seat_info.seat_id}
         </div>
       ) : (
-        <div
-          className="seat"
-          id="seat"
-          onClick={(event) => {
-            onSelected(event);
-          }}
-        >
+        <div className="seat" id="seat" onClick={(event) => { onSelected(event);}}>
           {seat_info.seat_id}
         </div>
       )}

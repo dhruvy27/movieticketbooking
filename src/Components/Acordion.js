@@ -21,7 +21,6 @@ function Accordion({moviename,hallname}){
                     const url ="/screen2?hallName=" + element.name + "&&moviename="+moviename
                     return(
                         <li key={element.hall_id} onClick={()=>dhruv(element)}><Link to={url} style={{ textDecoration: 'none',color: 'yellow'}}>{element.name}</Link></li>
-                    // <li key={element.id}><Link to={url} >{element.name}</Link></li>
                 )})}
             </ul>
         </Collapsible>

@@ -9,13 +9,12 @@ function Screen1(){
     const dispatch = useDispatch()
     const store = useSelector((element)=>{ return element.allItem })
     
-    
     useEffect(()=>{dispatch(addAllMovie({
         allItem:data
     }))},[])
     return(
         <div>
-            <h1 class="header">Watch Movies</h1>
+            <h1 className="header">Watch Movies</h1>
             {store.map((element)=>{
                 console.log(element)
                 return(

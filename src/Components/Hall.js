@@ -10,11 +10,14 @@ function Hall(props) {
   const [selectedSeat, setSelectedSeat] = useState([]);
   const [show, setShow] = useState(false);
   const [onCard, setOnCard] = useState([]);
+  
+  
   const onCreditCardSubmit = (e) => {
     e.preventDefault();
     const cardnum = document.getElementById('cardnum').value
-    console.log(cardnum)
-    if(cardnum.length<16){
+    const cvv = document.getElementById('cvv').value
+
+    if(cardnum.length<16 || cvv.length!=3){
         alert("enter valid data")
     }else{
         setShow(false);
@@ -23,21 +26,18 @@ function Hall(props) {
         alert('Payment Successfull')
     }
   };
+
+
   return (
     <div>
       <div className="seat-container">
         {hall.seats.map((element) => {
-        //   {
-        //     console.log(props.hall.hall_id);
-        //   }
           return (
             <Seats
               seat_info={element}
               key={element.seat_id}
               setSelectedSeat={setSelectedSeat}
               selectedSeat={selectedSeat}
-              hall_id={props.hall.hall_id}
-              movie_id={props.movie_id}
               onCard={onCard}
             ></Seats>
           );
@@ -45,7 +45,7 @@ function Hall(props) {
       </div>
       <div className="screen"><img src={pic}/></div>
       <div className="main-div">
-        <Cart selectedSeat={selectedSeat} onCard={onCard}></Cart>
+        <Cart selectedSeat={selectedSeat}></Cart>
       </div>
       <button onClick={() => setShow(true)}>Checkout</button>
       <div>
@@ -54,7 +54,7 @@ function Hall(props) {
           onClose={() => setShow(false)}
           show={show}
           selectedSeat={selectedSeat} 
-          onCard={onCard}
+ 
         ></Modal>
       </div>
     </div>
