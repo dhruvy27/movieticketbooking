@@ -1,6 +1,7 @@
  [
   
     {
+      "poster":"https://i.pinimg.com/736x/ea/7c/b1/ea7cb1fe0b8bfe7cc7998bf9af147360.jpg",
       "movie_id": 1,
       "name": "Pushpa",
       "cinema_halls": [
@@ -151,6 +152,7 @@
     },
 
     {
+        "poster":"https://m.media-amazon.com/images/M/MV5BMjAxMzY3NjcxNF5BMl5BanBnXkFtZTcwNTI5OTM0Mw@@._V1_QL75_UX190_CR0,0,190,281_.jpg",
         "movie_id": 2,
         "name": "Inception",
         "cinema_halls": [
@@ -301,6 +303,7 @@
       },
       
       {
+        "poster":"https://m.media-amazon.com/images/M/MV5BMWU4ZjNlNTQtOGE2MS00NDI0LWFlYjMtMmY3ZWVkMjJkNGRmXkEyXkFqcGdeQXVyNjE1OTQ0NjA@._V1_.jpg",
         "movie_id": 3,
         "name": "URI",
         "cinema_halls": [

@@ -3,12 +3,15 @@ import Seats from "./Seats";
 import Cart from "./Cart";
 import "./Seats.css";
 import Modal from "./Modal";
+import SuccessModal from "./SuccessModal"
 import pic from './screenthisside2.png'
 
 function Hall(props) {
   const hall = props.hall;
   const [selectedSeat, setSelectedSeat] = useState([]);
   const [show, setShow] = useState(false);
+  const [showSuccess, setShowSuccess] = useState(false);
+  const [modalMssg,setModalMssg] = useState('')
   const [onCard, setOnCard] = useState([]);
   
   
@@ -18,12 +21,15 @@ function Hall(props) {
     const cvv = document.getElementById('cvv').value
 
     if(cardnum.length<16 || cvv.length!=3){
-        alert("enter valid data")
+      setModalMssg("Invalid Entry")
+      setShowSuccess(true)
     }else{
         setShow(false);
         setOnCard(selectedSeat);
         setSelectedSeat([])
-        alert('Payment Successfull')
+        setModalMssg("Payment Successful")
+        setShowSuccess(true)
+
     }
   };
 
@@ -47,15 +53,15 @@ function Hall(props) {
       <div className="main-div">
         <Cart selectedSeat={selectedSeat}></Cart>
       </div>
-      <button onClick={() => setShow(true)}>Checkout</button>
+      <button onClick={() => setShow(true)} className="checkout" >Checkout</button>
       <div>
         <Modal
           onCreditCardSubmit={onCreditCardSubmit}
           onClose={() => setShow(false)}
           show={show}
           selectedSeat={selectedSeat} 
- 
         ></Modal>
+        <SuccessModal onClose={() => setShowSuccess(false)} showSuccess={showSuccess} setModalMssg={setModalMssg} modalMssg={modalMssg} ></SuccessModal>
       </div>
     </div>
   );

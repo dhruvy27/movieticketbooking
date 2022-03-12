@@ -1,23 +1,27 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { Link, useSearchParams } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
-import { addAllMovie } from "../store/booking";
-import alldata from "../data.json";
+import { addAllMovie } from "../../store/booking";
+import data from "../../data.json";
 
-// import { dhruv } from "./Acordion";
 import Hall from "./Hall";
+
+
 function Screen2() {
+  
+  const dispatch = useDispatch()
+  const store = useSelector((element)=>{ return element.allItem })
+ 
+  useEffect(()=>{dispatch(addAllMovie({
+      allItem:data
+  }))},[])
+
+
   const [searchParams, setSearchParams] = useSearchParams();
   const hallName = searchParams.get("hallName");
   const moviename = searchParams.get("moviename");
-
-  const data = useSelector((element) => {
-    return element.allItem;
-  });
-
-  
-  const currenthall = data.filter((element) => element.name == moviename);
-  const hall = currenthall[0].cinema_halls;
+  const currenthall = store.filter((element) => element.name == moviename);
+  console.log(store)
 
   return (
     <div>
