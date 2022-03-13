@@ -1,5 +1,5 @@
 import React, { useEffect } from "react";
-import { Link, useSearchParams } from "react-router-dom";
+import { useSearchParams } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import { addAllMovie } from "../../store/booking";
 import data from "../../data.json";
@@ -10,18 +10,17 @@ import Hall from "./Hall";
 function Screen2() {
   
   const dispatch = useDispatch()
+  dispatch(addAllMovie({
+    allItem:data
+}))
   const store = useSelector((element)=>{ return element.allItem })
- 
-  useEffect(()=>{dispatch(addAllMovie({
-      allItem:data
-  }))},[])
-
+  console.log(store)
 
   const [searchParams, setSearchParams] = useSearchParams();
   const hallName = searchParams.get("hallName");
   const moviename = searchParams.get("moviename");
   const currenthall = store.filter((element) => element.name == moviename);
-  console.log(store)
+  //console.log(store)
 
   return (
     <div>

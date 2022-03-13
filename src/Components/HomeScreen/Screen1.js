@@ -18,7 +18,7 @@ function Screen1(){
         <div className="accordian-container">
             <Header/>
             {store.map((element)=>{
-                console.log(element)
+                //console.log(element)
                 return(
                 <Accordion key ={element.movie_id} moviename={element.name} hallname={element.cinema_halls} link={element.poster} ></Accordion>
                 )

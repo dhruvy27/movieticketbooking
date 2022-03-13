@@ -4,9 +4,14 @@ import Cart from "./Cart";
 import "./Seats.css";
 import Modal from "./Modal";
 import SuccessModal from "./SuccessModal"
-import pic from './screenthisside2.png'
+import {successfullPayment,unsuccessfullPayment,changeStatus} from '../../store/booking'
+import pic from './screenthisside.png'
+import {useDispatch} from 'react-redux'
 
 function Hall(props) {
+
+const dispatch = useDispatch()
+
   const hall = props.hall;
   const [selectedSeat, setSelectedSeat] = useState([]);
   const [show, setShow] = useState(false);
@@ -23,12 +28,16 @@ function Hall(props) {
     if(cardnum.length<16 || cvv.length!=3){
       setModalMssg("Invalid Entry")
       setShowSuccess(true)
+      //setSelectedSeat([])
+      dispatch(unsuccessfullPayment())
+      setShow(false);
     }else{
         setShow(false);
         setOnCard(selectedSeat);
         setSelectedSeat([])
         setModalMssg("Payment Successful")
         setShowSuccess(true)
+        dispatch(successfullPayment({}))
 
     }
   };
@@ -36,24 +45,24 @@ function Hall(props) {
 
   return (
     <div>
-      <div className="seat-container">
-        {hall.seats.map((element) => {
-          return (
+      <div className="seat-container" id="seat-Id">
             <Seats
-              seat_info={element}
-              key={element.seat_id}
-              setSelectedSeat={setSelectedSeat}
-              selectedSeat={selectedSeat}
-              onCard={onCard}
+            // seat_info={element}
+            // key={element.seat_id}
+            setSelectedSeat={setSelectedSeat}
+            selectedSeat={selectedSeat}
+            hall_id={props.hall.hall_id}
+            movie_id={props.movie_id}
+            onCard={onCard}
             ></Seats>
-          );
-        })}
+            <div className="screen"><img src={pic}/></div>
+            <div className=" eyes-text"><h1>EYES THIS SIDE</h1></div>
       </div>
-      <div className="screen"><img src={pic}/></div>
-      <div className="main-div">
+      
+      <div className="cart-div">
         <Cart selectedSeat={selectedSeat}></Cart>
       </div>
-      <button onClick={() => setShow(true)} className="checkout" >Checkout</button>
+      <div className="checkout"><button onClick={() => setShow(true)}  >Checkout</button></div>
       <div>
         <Modal
           onCreditCardSubmit={onCreditCardSubmit}

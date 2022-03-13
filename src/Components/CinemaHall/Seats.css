@@ -9,12 +9,13 @@
     text-align: center;
     justify-content: center;
     align-content: center;
+    border-radius: 12px;
 } 
 /* rgb(175, 235, 235) */
 .seat-container{
-    background-color: rgb(107, 106, 117);
+    background-color: rgb(40, 63, 126);
     display: grid;
-    grid-template-columns: repeat(5,1fr);
+    grid-template-columns: repeat(1,1fr);
     grid-auto-flow: row;
     flex-wrap: wrap;
     padding: 20px;
@@ -22,20 +23,16 @@
     column-gap: 2px;
     margin: auto;
     justify-content:space-around;
-    width: 80%;
+    width: 82%;
+    border-radius: 12px;
  
 }
 
-.main-div{
-    background-color: rgb(148, 151, 145);
-    width: 200px;
-    margin-top: 10px;
-    /* bottom: 10%; */
-}
+
 .title{
     text-align: center;
     font-size: 60px;
-    color: rgb(226, 226, 202);
+    color: rgb(180, 180, 175);
     font-family: 'Courier New', Courier, monospace;
     font-style: italic ;
 }
@@ -49,7 +46,7 @@
     /* background-color: white; */
 }
 img{
-    width: 83.2%;
+    width: 84%;
 }
 
 #cartpic{
@@ -57,28 +54,59 @@ img{
     height: 30px;
 }
 
-/* #cart_value{
-    width: 20%;
-    position: absolute;
-    top: 10%;
-    bottom: 34%;
-} */
-
 #cart_value{
     position: relative;
 }
 
-.main-div{
-    position: relative;
+.cart-div{
+    /* position: relative;
     left:10px;
-    top:170px;
+    top:10px; */
+    margin: auto;
     background-color: rgb(24, 24, 34);
     color: rgb(152, 199, 199);
+    width: 35%;
+    margin-top: 10px;
+    font-size: 30px;
 }
 
 .checkout{
-    position: relative;
-    top:170px;
-    left:10px;
+    /* position: relative;
+    top:20px;
+    left:10px; */
+    margin: auto;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
 }
 
+button {
+    background-color: #160e5e; /* Green */
+    border:3px solid rgb(163, 194, 235);
+    color: white;
+    padding: 10px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 20px;
+    margin: auto;
+    cursor: pointer;
+    border-radius: 10px;
+
+  }
+
+.seats{
+    display: grid;
+    grid-template-columns: repeat(5,1fr);
+    grid-auto-flow: row;
+    flex-wrap: wrap;
+    padding: 20px;
+    row-gap: 20px;
+    column-gap: 2px;
+    margin: auto;
+    justify-content:space-around;
+    width: 80%;
+}
+.eyes-text{
+    text-align: center;
+}

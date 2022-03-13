@@ -1,18 +1,17 @@
 import React from "react";
-//hello
 import { propTypes } from "react-bootstrap/esm/Image";
 import Collapsible from 'react-collapsible';
+import Trigger from "./Trigger";
+
+
 import  './Accordion.css';
 import {Link,useSearchParams} from 'react-router-dom'
 
 
-// {<img  src={cartpic} id="cartpic"/>}
-/* <Collapsible className="Accordion" trigger={moviename}></Collapsible> */
-
 function Accordion({moviename,hallname,link}){
 
     return(
-        <Collapsible className="Accordion" trigger={<img  src={link} id="poster"/>}>
+        <Collapsible className="Accordion" trigger={<Trigger moviename={moviename} link={link} />}>
             <div className="hall-container">
                 {hallname.map((element)=>{
                     const url ="/screen2?hallName=" + element.name + "&&moviename="+moviename
