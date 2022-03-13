@@ -1,5 +1,5 @@
 import React from 'react'
-import  './Accordion.css';
+import  './style/Accordion.css';
 
 function Header() {
   return (

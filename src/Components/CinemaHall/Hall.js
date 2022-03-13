@@ -1,12 +1,17 @@
 import React, { useState } from "react";
+import {successfullPayment,unsuccessfullPayment,changeStatus} from '../../store/booking'
+import {useDispatch} from 'react-redux'
+
 import Seats from "./Seats";
 import Cart from "./Cart";
-import "./Seats.css";
 import Modal from "./Modal";
 import SuccessModal from "./SuccessModal"
-import {successfullPayment,unsuccessfullPayment,changeStatus} from '../../store/booking'
-import pic from './screenthisside.png'
-import {useDispatch} from 'react-redux'
+import pic from '../util/screenthisside.png'
+import valiadtion from "../util/Validation";
+
+import "./style/Seats.css";
+
+
 
 function Hall(props) {
 
@@ -24,8 +29,11 @@ const dispatch = useDispatch()
     e.preventDefault();
     const cardnum = document.getElementById('cardnum').value
     const cvv = document.getElementById('cvv').value
+    console.log(cardnum.charAt(0))
 
-    if(cardnum.length<16 || cvv.length!=3){
+    const valid = valiadtion(cardnum,cvv)
+
+    if(valid == false){
       setModalMssg("Invalid Entry")
       setShowSuccess(true)
       //setSelectedSeat([])
@@ -55,7 +63,7 @@ const dispatch = useDispatch()
             movie_id={props.movie_id}
             onCard={onCard}
             ></Seats>
-            <div className="screen"><img src={pic}/></div>
+            <div className="screen"><img src={pic} id= "screen-img" /></div>
             <div className=" eyes-text"><h1>EYES THIS SIDE</h1></div>
       </div>
       

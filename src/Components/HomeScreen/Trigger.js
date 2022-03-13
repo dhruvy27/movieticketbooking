@@ -1,6 +1,6 @@
 import React from 'react'
 
-import  './Accordion.css';
+import  './style/Accordion.css';
 
 function Trigger(props) {
   return (

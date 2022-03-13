@@ -5,7 +5,7 @@ import {addAllMovie} from '../../store/booking'
 import data from '../../data.json'
 import Header from "./Header";
 
-import  './Accordion.css';
+import  './style/Accordion.css';
 
 function Screen1(){
     const dispatch = useDispatch()

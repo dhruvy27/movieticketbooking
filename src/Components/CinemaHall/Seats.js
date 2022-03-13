@@ -1,5 +1,5 @@
 import React, { useState,useEffect } from "react";
-import "./Seats.css";
+import "./style/Seats.css";
 import { useDispatch } from "react-redux";
 import { changeStatus,successfullPayment } from "../../store/booking.js";
 import {useSelector} from 'react-redux'

@@ -4,7 +4,7 @@ import Collapsible from 'react-collapsible';
 import Trigger from "./Trigger";
 
 
-import  './Accordion.css';
+import  './style/Accordion.css';
 import {Link,useSearchParams} from 'react-router-dom'
 
 

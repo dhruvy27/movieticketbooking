@@ -12,7 +12,7 @@ body{
   
 }
 .Collapsible {
-  background-color:rgb(158, 190, 190);
+  background-color:rgb(40, 63, 126);
   width: 30%;
   justify-content: center;
   margin: auto;
@@ -20,6 +20,7 @@ body{
 
   grid-template-rows: repeat(1,1fr); */
 }
+
 
 .Collapsible__contentInner {
   padding: 10px;
@@ -49,10 +50,11 @@ body{
   position: relative;
   border: 1px solid white;
   padding: 10px;
-  background:rgb(168, 233, 233);
+  background:rgb(18, 22, 59);
   color: white;
   cursor: pointer;
   text-align: center;
+  border-radius: 15px;
 }
 
 .Collapsible__trigger:after {
@@ -110,5 +112,5 @@ img{
 }
 
 .movie-title{
-  color: black;
+  color: rgb(226, 221, 221);
 }

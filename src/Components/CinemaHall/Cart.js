@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import {useSelector} from 'react-redux'
-import cartpic from './carticon.jpg'
-import "./Seats.css";
+import cartpic from '../util/carticon.jpg'
+import "./style/Seats.css";
 
 function Cart({selectedSeat}) {
     

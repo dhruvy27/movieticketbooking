@@ -1,5 +1,5 @@
 import React from "react";
-import "./Modal.css";
+import "./style/Modal.css";
 
 export default function SuccessModal(props) {
   if (!props.showSuccess) {
