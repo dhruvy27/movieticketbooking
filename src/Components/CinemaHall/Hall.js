@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import {successfullPayment,unsuccessfullPayment,changeStatus} from '../../store/booking'
 import {useDispatch} from 'react-redux'
-
+import { connect } from "react-redux";
 import Seats from "./Seats";
 import Cart from "./Cart";
 import Modal from "./Modal";
@@ -11,13 +11,22 @@ import valiadtion from "../util/Validation";
 
 import "./style/Seats.css";
 
+const mapStateToProps= (state,currentProps)=>{  
+  return {
+    props:currentProps,
+  }
 
+}
+const mapDispatchToProps = (dispatch,currentProps)=>{
+  return {
+    successfullPayment:()=>dispatch({type:"successfullPayment",payload:{}}),
+    unsuccessfullPayment:()=>dispatch({type:"unsuccessfullPayment"})
+  }
+}
 
-function Hall(props) {
-
+function Hall({props,successfullPayment,unsuccessfullPayment}) {
+  console.log(props)
   const noOFSeats = props.hall.seats.length
-
-const dispatch = useDispatch()
 
   const hall = props.hall;
   const [selectedSeat, setSelectedSeat] = useState([]);
@@ -26,7 +35,7 @@ const dispatch = useDispatch()
   const [modalMssg,setModalMssg] = useState('')
   const [onCard, setOnCard] = useState([]);
   
-  
+
   const onCreditCardSubmit = (e) => {
     e.preventDefault();
     const cardnum = document.getElementById('cardnum').value
@@ -38,7 +47,7 @@ const dispatch = useDispatch()
       setModalMssg("Invalid Entry")
       setShowSuccess(true)
       //setSelectedSeat([])
-      dispatch(unsuccessfullPayment())
+      unsuccessfullPayment()
       setShow(false);
     }else{
         setShow(false);
@@ -46,7 +55,7 @@ const dispatch = useDispatch()
         setSelectedSeat([])
         setModalMssg("Payment Successful")
         setShowSuccess(true)
-        dispatch(successfullPayment({}))
+        successfullPayment()
 
     }
   };
@@ -76,7 +85,7 @@ const dispatch = useDispatch()
           onCreditCardSubmit={onCreditCardSubmit}
           onClose={() => setShow(false)}
           show={show}
-          selectedSeat={selectedSeat} 
+          selectedSeat={selectedSeat}
         ></Modal>
         <SuccessModal onClose={() => setShowSuccess(false)} showSuccess={showSuccess} setModalMssg={setModalMssg} modalMssg={modalMssg} ></SuccessModal>
       </div>
@@ -84,4 +93,4 @@ const dispatch = useDispatch()
   );
 }
 
-export default Hall;
+export default connect(mapStateToProps,mapDispatchToProps)(Hall);

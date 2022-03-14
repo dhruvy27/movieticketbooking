@@ -1,20 +1,23 @@
-import React, { useState } from "react";
-import {useSelector} from 'react-redux'
+import React from "react";
+import { connect } from "react-redux";
 import cartpic from '../util/carticon.jpg'
 import "./style/Seats.css";
 
-function Cart({selectedSeat}) {
-    
-    var counter=0
 
-    const selectedSeats = useSelector((state)=>{
-      return state.selectedSeats
-    })
+const mapStateToProps = (state,currentProps)=>{
+  return {
+    selectedSeats:state.selectedSeats
+  }
+}
+
+function Cart({selectedSeats}) {
+    
+    
     console.log(selectedSeats)
     const key = Object.values(selectedSeats)
     console.log(key)
     console.log(selectedSeats)
-
+    var counter=0
     key.map((ele)=>{
       if(ele == true)
       counter++
@@ -27,4 +30,4 @@ function Cart({selectedSeat}) {
   )
 }
 
-export default Cart
+export default connect(mapStateToProps)(Cart)

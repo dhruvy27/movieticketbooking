@@ -1,7 +1,31 @@
 import React from "react";
 import "./style/Modal.css";
+import { connect } from "react-redux";
+const mapStateToProps = (state,currProps)=>{
+  return {
+    selectedSeat:state.selectedSeats,
+    props:currProps
+  }
+}
 
-export default function Modal(props) {
+const Modal = ({selectedSeat,props})=>{
+
+  const calculate = (selectedSeats)=>{
+    console.log(selectedSeats)
+    const key = Object.values(selectedSeats)
+    console.log(key)
+    console.log(selectedSeats)
+    var counter=0
+    key.map((ele)=>{
+      if(ele == true)
+      counter++
+    })
+    console.log(counter,"counter")
+
+    const totalprice =  150 *counter
+    return totalprice
+  }
+
   if (!props.show) {
     return null;
   }
@@ -9,7 +33,7 @@ export default function Modal(props) {
     <div className="modal">
       <div className="modal-content">
         <div className="modal-header">
-          <h3>Total Value :{150*(props.selectedSeat).length}Rs</h3>
+          <h3>Total Value :{calculate(selectedSeat)}Rs</h3>
         </div>
         <div className="modal-body">
           <form>
@@ -29,3 +53,6 @@ export default function Modal(props) {
     </div>
   );
 }
+
+
+export default connect(mapStateToProps)(Modal)

@@ -1,19 +1,30 @@
 import React, { useEffect } from "react";
 import { useSearchParams } from "react-router-dom";
-import { useSelector, useDispatch } from "react-redux";
-import { addAllMovie } from "../../store/booking";
+import { connect } from "react-redux";
 import data from "../../data.json";
 
 import Hall from "./Hall";
 
+const mapStateToProps = (state,currentProps)=>{
+  return {
+    selectedSeats:state.selectedSeats,
+    allItem:state.allItem
+  }
+}
+const mapDispatchToProps = (dispatch,currentProps)=>{
+  return {
+    successfullPayment:()=>dispatch({type:"successfullPayment",payload:{}}),
+    unsuccessfullPayment:()=>dispatch({type:"unsuccessfullPayment"}),
+    addAllMovie:()=>dispatch({type:"addAllMovie",payload:{
+      allItem:data
+    }}),
+  }
+}
 
-function Screen2() {
-  
-  const dispatch = useDispatch()
-  dispatch(addAllMovie({
-    allItem:data
-}))
-  const store = useSelector((element)=>{ return element.allItem })
+
+function Screen2({allItem,addAllMovie}) {
+    addAllMovie()
+  const store = allItem
   console.log(store)
 
   const [searchParams, setSearchParams] = useSearchParams();
@@ -21,7 +32,7 @@ function Screen2() {
   const moviename = searchParams.get("moviename");
   const currenthall = store.filter((element) => element.name == moviename);
   //console.log(store)
-
+  console.log(currenthall)
   return (
     <div>
       <div className="title">{moviename}</div>
@@ -43,4 +54,4 @@ function Screen2() {
   );
 }
 
-export default Screen2;
+export default connect(mapStateToProps,mapDispatchToProps)(Screen2);

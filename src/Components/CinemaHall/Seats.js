@@ -1,23 +1,47 @@
 import React, { useState,useEffect } from "react";
 import "./style/Seats.css";
 import { useDispatch } from "react-redux";
+import { connect } from "react-redux";
 import { changeStatus,successfullPayment } from "../../store/booking.js";
-import {useSelector} from 'react-redux'
-import seatsarray from "../util/seatsarray";
-import store from "../../store/storeconfig";
-
-function Seats({
-  setSelectedSeat,
+// import {useSelector} from 'react-redux'
+const mapStateToProps = ({allItem,selectedSeats,confirmSeats},{setSelectedSeat,
   selectedSeat,
   hall_id,
   movie_id,
-  noOFSeats,
-}) {
-  const dispatch = useDispatch();
-  const allBookedSeats = useSelector(state=>{
-    return state.allItem
-  })
+  noOFSeats})=>{
+  return {
+    setSelectedSeat,
+    selectedSeat,
+    hall_id,
+    movie_id,
+    noOFSeats,
+    allItem,
+    selectedSeats,
+    confirmSeats
+  }
+}
+const mapDispatchToProps = (dispatch,currentProps)=>{
+  return {
+    successfullPayment:(payloadData)=>dispatch({type:"successfullPayment",payload:payloadData}),
+    unsuccessfullPayment:()=>dispatch({type:"unsuccessfullPayment"}),
+    changeStatus:(payloadData)=>dispatch({type:"changeStatus",payload:payloadData})
+  }
+}
 
+function Seats({
+  changeStatus,
+  setSelectedSeat,
+  selectedSeat,
+  selectedSeats,
+  hall_id,
+  movie_id,
+  noOFSeats,
+  allItem,
+  successfullPayment,
+  confirmSeats
+}) {
+  // const dispatch = useDispatch();
+  const allBookedSeats = allItem
   console.log(noOFSeats)
   var arr =[]
   for(var i=1;i<=noOFSeats;i++){
@@ -31,18 +55,18 @@ function Seats({
     const currentHall = hall[0].cinema_halls.filter(ele=>{
       return ele.hall_id==hall_id
     })
-    currentHall[0].seats.map(ele=>dispatch(successfullPayment({
+    currentHall[0].seats.map(ele=>successfullPayment({
       id:[ele.seat_id],status:ele.status=="available"?false:true
-  })))
+  }))
   }, []);
 
 
-  const selectedSeats = useSelector((state)=>{
-    return state.selectedSeats
-  })
-  const confirmSeats =useSelector((state)=>{
-    return state.confirmSeats
-  })
+  // const selectedSeats = useSelector((state)=>{
+  //   return state.selectedSeats
+  // })
+  // const confirmSeats =useSelector((state)=>{
+  //   return state.confirmSeats
+  // })
   
   // const seats = useSelector((state)=>{
   //   return state.seats
@@ -54,26 +78,23 @@ function Seats({
     if (event.target.style.backgroundColor == "green") {
       console.log(selectedSeat);
       setSelectedSeat(selectedSeat);
-      dispatch(
         changeStatus({
           id: event.target.dataset.value,
           hall_id: hall_id,
           movie_id: movie_id,
         })
-      );
 
     } else {
       event.target.style.backgroundColor = "green";
       selectedSeat = [...selectedSeat, event.target.dataset.value];
       console.log(selectedSeat);
       setSelectedSeat(selectedSeat);
-      dispatch(
-        changeStatus({
+      changeStatus({
           id: event.target.dataset.value,
           hall_id: hall_id,
           movie_id: movie_id,
         })
-      );
+      ;
     }
   };
   return (
@@ -97,4 +118,4 @@ function Seats({
     </div>
   );
 }
-export default Seats;
+export default connect(mapStateToProps,mapDispatchToProps)(Seats);
