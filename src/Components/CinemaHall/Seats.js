@@ -3,28 +3,40 @@ import "./style/Seats.css";
 import { useDispatch } from "react-redux";
 import { changeStatus,successfullPayment } from "../../store/booking.js";
 import {useSelector} from 'react-redux'
+import seatsarray from "../util/seatsarray";
+import store from "../../store/storeconfig";
 
 function Seats({
   setSelectedSeat,
   selectedSeat,
   hall_id,
   movie_id,
+  noOFSeats,
 }) {
   const dispatch = useDispatch();
   const allBookedSeats = useSelector(state=>{
     return state.allItem
   })
 
+  console.log(noOFSeats)
+  var arr =[]
+  for(var i=1;i<=noOFSeats;i++){
+    arr.push(i)
+}
+
+
   useEffect(() => {
     const hall = allBookedSeats.filter(ele=>{return ele.name==movie_id})
-  const currentHall = hall[0].cinema_halls.filter(ele=>{
-    //console.log(ele.hall_id,hall_id)
-    return ele.hall_id==hall_id})
-  //console.log(currentHall[0])
-  currentHall[0].seats.map(ele=>dispatch(successfullPayment({
-    id:[ele.seat_id],status:ele.status=="available"?false:true
+
+    const currentHall = hall[0].cinema_halls.filter(ele=>{
+      return ele.hall_id==hall_id
+    })
+    currentHall[0].seats.map(ele=>dispatch(successfullPayment({
+      id:[ele.seat_id],status:ele.status=="available"?false:true
   })))
   }, []);
+
+
   const selectedSeats = useSelector((state)=>{
     return state.selectedSeats
   })
@@ -32,17 +44,11 @@ function Seats({
     return state.confirmSeats
   })
   
-  const seats = useSelector((state)=>{
-    return state.seats
-  })
+  // const seats = useSelector((state)=>{
+  //   return state.seats
+  // })
 
-  console.log(confirmSeats,selectedSeats)
-  console.log(movie_id)
-  console.log(hall_id)
 
-  
-  
-  
   const onSelected = (event) => {
     // console.log(event)
     if (event.target.style.backgroundColor == "green") {
@@ -72,10 +78,9 @@ function Seats({
   };
   return (
     <div className="seats">
-      {console.log("element")}
-      {console.log(confirmSeats[1])}
-      {seats.map((element)=>{
-        //console.log(element,"element here")
+
+      {arr.map((element)=>{
+ 
           if(selectedSeats[element]!=undefined && selectedSeats[element]== true) { 
             return <div className="seat"  style={{ backgroundColor: "green" }} data-value ={element} onClick = {(event,element)=>onSelected(event,element)} >
             {element}{" "}</div>

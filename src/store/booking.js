@@ -1,7 +1,7 @@
 import  {createSlice} from "@reduxjs/toolkit";
 const itemSlice = createSlice({
     name:"movie",
-    initialState:{allItem:[],selectedSeats:{},confirmSeats:{},seats:[1,2,3,4,5,6,7,8,9,10]},
+    initialState:{allItem:[],selectedSeats:{},confirmSeats:{}},
     reducers:{
         addAllMovie:(state,action)=>{
             state.allItem = action.payload.allItem

@@ -15,6 +15,8 @@ import "./style/Seats.css";
 
 function Hall(props) {
 
+  const noOFSeats = props.hall.seats.length
+
 const dispatch = useDispatch()
 
   const hall = props.hall;
@@ -29,7 +31,6 @@ const dispatch = useDispatch()
     e.preventDefault();
     const cardnum = document.getElementById('cardnum').value
     const cvv = document.getElementById('cvv').value
-    console.log(cardnum.charAt(0))
 
     const valid = valiadtion(cardnum,cvv)
 
@@ -55,13 +56,12 @@ const dispatch = useDispatch()
     <div>
       <div className="seat-container" id="seat-Id">
             <Seats
-            // seat_info={element}
-            // key={element.seat_id}
             setSelectedSeat={setSelectedSeat}
             selectedSeat={selectedSeat}
             hall_id={props.hall.hall_id}
             movie_id={props.movie_id}
             onCard={onCard}
+            noOFSeats={noOFSeats}
             ></Seats>
             <div className="screen"><img src={pic} id= "screen-img" /></div>
             <div className=" eyes-text"><h1>EYES THIS SIDE</h1></div>
