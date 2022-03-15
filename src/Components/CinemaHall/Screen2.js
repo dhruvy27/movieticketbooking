@@ -7,23 +7,24 @@ import Hall from "./Hall";
 
 const mapStateToProps = (state,currentProps)=>{
   return {
-    selectedSeats:state.selectedSeats,
-    allItem:state.allItem
+    selectedSeats:state.cinema.selectedSeats,
+    allItem:state.home.allItem
   }
 }
 const mapDispatchToProps = (dispatch,currentProps)=>{
   return {
     successfullPayment:()=>dispatch({type:"successfullPayment",payload:{}}),
     unsuccessfullPayment:()=>dispatch({type:"unsuccessfullPayment"}),
-    addAllMovie:()=>dispatch({type:"addAllMovie",payload:{
-      allItem:data
-    }}),
+    addAllMovie:()=>dispatch({type:"addAllMovie",payload:{allItem:data}}),
   }
 }
 
 
 function Screen2({allItem,addAllMovie}) {
+
+  useEffect(()=>{
     addAllMovie()
+},[]) 
   const store = allItem
   console.log(store)
 

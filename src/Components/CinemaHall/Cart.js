@@ -6,7 +6,7 @@ import "./style/Seats.css";
 
 const mapStateToProps = (state,currentProps)=>{
   return {
-    selectedSeats:state.selectedSeats
+    selectedSeats:state.cinema.selectedSeats
   }
 }
 

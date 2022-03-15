@@ -1,6 +1,6 @@
 import React, { useState } from "react";
-import {successfullPayment,unsuccessfullPayment,changeStatus} from '../../store/booking'
-import {useDispatch} from 'react-redux'
+//import {successfullPayment,unsuccessfullPayment,changeStatus} from '../../store/booking'
+//import {useDispatch} from 'react-redux'
 import { connect } from "react-redux";
 import Seats from "./Seats";
 import Cart from "./Cart";
@@ -15,7 +15,6 @@ const mapStateToProps= (state,currentProps)=>{
   return {
     props:currentProps,
   }
-
 }
 const mapDispatchToProps = (dispatch,currentProps)=>{
   return {

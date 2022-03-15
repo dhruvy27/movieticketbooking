@@ -3,7 +3,7 @@ import "./style/Modal.css";
 import { connect } from "react-redux";
 const mapStateToProps = (state,currProps)=>{
   return {
-    selectedSeat:state.selectedSeats,
+    selectedSeat:state.cinema.selectedSeats,
     props:currProps
   }
 }

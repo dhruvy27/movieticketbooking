@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 import Accordion from "./Acordion";
 import {useSelector, useDispatch} from 'react-redux'
-import {addAllMovie} from '../../store/booking'
+//import {addAllMovie} from '../../store/booking'
 import data from '../../data.json'
 import Header from "./Header";
 import { connect } from "react-redux";
@@ -9,9 +9,10 @@ import { connect } from "react-redux";
 import  './style/Accordion.css';
 
 
-const mapStateToProps =(state,currentProps)=>{
+const mapStateToProps =(state)=>{
+    console.log(state)
     return {
-        allItem:state.allItem
+        allItem:state.home.allItem
     }
 }
 
@@ -27,7 +28,11 @@ function Screen1({getAllData,allItem}){
     // useEffect(()=>{dispatch(addAllMovie({
     //     allItem:data
     // }))},[])
-    getAllData()
+
+    useEffect(()=>{
+        getAllData()
+    },[])
+
     const store=allItem
     return(
         <div className="accordian-container">

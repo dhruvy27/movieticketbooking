@@ -1,16 +1,6 @@
 import data from '../data.json'
 import { addAllMovie,changeStatus,successfullPayment } from './actions'
 
-export const homereducer =(state = {allItem:[]}, action)=>{
-    
-    switch(action.type){
-        case addAllMovie:
-            return {...state,allItem:data}
-        default:
-            return state
-    }
-}
-
 export const cinemahallreducer =(state ={selectedSeats:{},confirmSeats:{}}, action)=>{
     
     switch(action.type){

@@ -2,9 +2,9 @@ import React, { useState,useEffect } from "react";
 import "./style/Seats.css";
 import { useDispatch } from "react-redux";
 import { connect } from "react-redux";
-import { changeStatus,successfullPayment } from "../../store/booking.js";
+//import { changeStatus,successfullPayment } from "../../store/booking.js";
 // import {useSelector} from 'react-redux'
-const mapStateToProps = ({allItem,selectedSeats,confirmSeats},{setSelectedSeat,
+const mapStateToProps = (state,{setSelectedSeat,
   selectedSeat,
   hall_id,
   movie_id,
@@ -15,9 +15,9 @@ const mapStateToProps = ({allItem,selectedSeats,confirmSeats},{setSelectedSeat,
     hall_id,
     movie_id,
     noOFSeats,
-    allItem,
-    selectedSeats,
-    confirmSeats
+    allItem:state.home.allItem,
+    selectedSeats:state.cinema.selectedSeats,
+    confirmSeats:state.cinema.confirmSeats
   }
 }
 const mapDispatchToProps = (dispatch,currentProps)=>{
