@@ -31,14 +31,13 @@ function Hall({props,successfullPayment,unsuccessfullPayment}) {
   const [showSuccess, setShowSuccess] = useState(false);
   const [modalMssg,setModalMssg] = useState('')
   const [onCard, setOnCard] = useState([]);
+  const [inputcardnum,setcardnum] = useState();
+  const [inputcvv,setcvv] = useState();
   
 
   const onCreditCardSubmit = (e) => {
     e.preventDefault();
-    const cardnum = document.getElementById('cardnum').value
-    const cvv = document.getElementById('cvv').value
-
-    const valid = valiadtion(cardnum,cvv)
+    const valid = valiadtion(inputcardnum,inputcvv)
 
     if(valid == false){
       setModalMssg("Invalid Entry")
@@ -82,6 +81,8 @@ function Hall({props,successfullPayment,unsuccessfullPayment}) {
           onClose={() => setShow(false)}
           show={show}
           selectedSeat={selectedSeat}
+          setcardnum={setcardnum}
+          setcvv = {setcvv}
         ></Modal>
         <SuccessModal onClose={() => setShowSuccess(false)} showSuccess={showSuccess} setModalMssg={setModalMssg} modalMssg={modalMssg} ></SuccessModal>
       </div>

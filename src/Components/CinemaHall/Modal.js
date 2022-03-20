@@ -1,4 +1,4 @@
-import React from "react";
+import React,{ useRef } from "react";
 import "./style/Modal.css";
 import { connect } from "react-redux";
 const mapStateToProps = (state,currProps)=>{
@@ -8,7 +8,12 @@ const mapStateToProps = (state,currProps)=>{
   }
 }
 
-const Modal = ({selectedSeat,props})=>{
+const Modal = ({selectedSeat,props,setcardnum,setcvv})=>{
+
+  const inputcardnum = useRef();
+  //console.log(inputcardnum)
+
+
 
   const calculate = (selectedSeats)=>{
     const key = Object.values(selectedSeats)
@@ -34,10 +39,10 @@ const Modal = ({selectedSeat,props})=>{
         <div className="modal-body">
           <form>
             <label id="input-label">Card No.</label>
-            <input type="text" id='cardnum' required></input>
+            <input type="text" id='cardnum' ref={inputcardnum} onChange={event => setcardnum(event.target.value)}  required></input>
             <br />
             <label id="input-label">CVV No.</label>
-            <input type="text" id="cvv" required></input><br />
+            <input type="text" id="cvv"  onChange={event => setcvv(event.target.value)}  required></input><br />
             
           </form>
         </div>
