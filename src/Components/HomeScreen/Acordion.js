@@ -14,7 +14,7 @@ function Accordion({moviename,hallname,link}){
         <Collapsible className="Accordion" trigger={<Trigger moviename={moviename} link={link} />}>
             <div className="hall-container">
                 {hallname.map((element)=>{
-                    const url ="/screen2?hallName=" + element.name + "&&moviename="+moviename
+                    const url ="/HallScreen?hallName=" + element.name + "&&moviename="+moviename
                     return(
                         <div key={element.hall_id}><Link to={url} style={{ textDecoration: 'none',color: 'yellow'}} className="hall-list" >{element.name}</Link></div>
                 )})}

@@ -1,5 +1,26 @@
 import data from '../data.json'
-import { addAllMovie,changeStatus,successfullPayment } from './actions'
+import { addAllMovie,changeStatus,successfullPayment,unsuccessfullPayment } from './actions'
+
+export function selectedseatsaction(seats){
+    return{
+        type:successfullPayment,
+        payload:seats 
+    }
+}
+
+export function unsuccessfullaction(seats){
+    return{
+        type:unsuccessfullPayment,
+        payload:seats 
+    }
+}
+
+export function changestatusaction(seats){
+    return{
+        type:changeStatus,
+        payload:seats 
+    }
+}
 
 export const cinemahallreducer =(state ={selectedSeats:{},confirmSeats:{}}, action)=>{
     
@@ -35,7 +56,7 @@ export const cinemahallreducer =(state ={selectedSeats:{},confirmSeats:{}}, acti
                 ...state,
                 ...current
             }
-        case "unsuccessfullPayment":
+        case unsuccessfullPayment:
             return {
                 ...state,
                 selectedSeats:{}

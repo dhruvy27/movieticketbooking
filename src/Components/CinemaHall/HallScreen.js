@@ -1,6 +1,8 @@
 import React, { useEffect } from "react";
 import { useSearchParams } from "react-router-dom";
 import { connect } from "react-redux";
+import {homereduceraction} from '../../store/homereducer'
+import {selectedseatsaction,changestatusaction,unsuccessfullaction} from '../../store/cinemahallreducer'
 import data from "../../data.json";
 
 import Hall from "./Hall";
@@ -13,33 +15,30 @@ const mapStateToProps = (state,currentProps)=>{
 }
 const mapDispatchToProps = (dispatch,currentProps)=>{
   return {
-    successfullPayment:()=>dispatch({type:"successfullPayment",payload:{}}),
-    unsuccessfullPayment:()=>dispatch({type:"unsuccessfullPayment"}),
-    addAllMovie:()=>dispatch({type:"addAllMovie",payload:{allItem:data}}),
+    successfullPayment:()=>dispatch(selectedseatsaction({})),
+    unsuccessfullPayment:()=>dispatch(unsuccessfullaction()),
+    addAllMovie:()=>dispatch(homereduceraction({allItem:data})),
   }
 }
 
 
-function Screen2({allItem,addAllMovie}) {
+function HallScreen({allItem,addAllMovie}) {
 
   useEffect(()=>{
     addAllMovie()
-},[]) 
+}) 
   const store = allItem
-  console.log(store)
 
   const [searchParams, setSearchParams] = useSearchParams();
   const hallName = searchParams.get("hallName");
   const moviename = searchParams.get("moviename");
   const currenthall = store.filter((element) => element.name == moviename);
-  //console.log(store)
-  console.log(currenthall)
   return (
     <div>
       <div className="title">{moviename}</div>
       {currenthall[0].cinema_halls.map((element) => {
         return (
-          <div>
+          <div key={element.hall_id}> 
             {element.name == hallName ? (
               <Hall
                 hall={element}
@@ -55,4 +54,4 @@ function Screen2({allItem,addAllMovie}) {
   );
 }
 
-export default connect(mapStateToProps,mapDispatchToProps)(Screen2);
+export default connect(mapStateToProps,mapDispatchToProps)(HallScreen);

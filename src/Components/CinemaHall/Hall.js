@@ -1,6 +1,5 @@
 import React, { useState } from "react";
-//import {successfullPayment,unsuccessfullPayment,changeStatus} from '../../store/booking'
-//import {useDispatch} from 'react-redux'
+import {selectedseatsaction,changestatusaction,unsuccessfullaction} from '../../store/cinemahallreducer'
 import { connect } from "react-redux";
 import Seats from "./Seats";
 import Cart from "./Cart";
@@ -18,13 +17,12 @@ const mapStateToProps= (state,currentProps)=>{
 }
 const mapDispatchToProps = (dispatch,currentProps)=>{
   return {
-    successfullPayment:()=>dispatch({type:"successfullPayment",payload:{}}),
-    unsuccessfullPayment:()=>dispatch({type:"unsuccessfullPayment"})
+    successfullPayment:()=>dispatch(selectedseatsaction({})),
+    unsuccessfullPayment:()=>dispatch(unsuccessfullaction())
   }
 }
 
 function Hall({props,successfullPayment,unsuccessfullPayment}) {
-  console.log(props)
   const noOFSeats = props.hall.seats.length
 
   const hall = props.hall;
@@ -45,7 +43,6 @@ function Hall({props,successfullPayment,unsuccessfullPayment}) {
     if(valid == false){
       setModalMssg("Invalid Entry")
       setShowSuccess(true)
-      //setSelectedSeat([])
       unsuccessfullPayment()
       setShow(false);
     }else{

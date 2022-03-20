@@ -13,16 +13,14 @@ const mapStateToProps = (state,currentProps)=>{
 function Cart({selectedSeats}) {
     
     
-    console.log(selectedSeats)
+
     const key = Object.values(selectedSeats)
-    console.log(key)
-    console.log(selectedSeats)
+
     var counter=0
     key.map((ele)=>{
       if(ele == true)
       counter++
     })
-    console.log(counter,"counter")
 
     const totalprice =  150 *counter
   return (

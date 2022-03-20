@@ -1,34 +1,23 @@
 import React, { useEffect } from "react";
 import Accordion from "./Acordion";
-import {useSelector, useDispatch} from 'react-redux'
-//import {addAllMovie} from '../../store/booking'
-import data from '../../data.json'
+import {homereduceraction} from '../../store/homereducer'
 import Header from "./Header";
 import { connect } from "react-redux";
 
 import  './style/Accordion.css';
 
-
 const mapStateToProps =(state)=>{
-    console.log(state)
     return {
         allItem:state.home.allItem
     }
 }
 
 const mapDispatchToProps = (dispatch)=>{
-    return{getAllData:()=>dispatch({type:"addAllMovie"})}
+    return{getAllData:()=>dispatch(homereduceraction())}
     
 }
 
-function Screen1({getAllData,allItem}){
-    // const dispatch = useDispatch()
-    // const store = useSelector((element)=>{ return element.allItem })
-   
-    // useEffect(()=>{dispatch(addAllMovie({
-    //     allItem:data
-    // }))},[])
-
+function HomeScreen({getAllData,allItem}){
     useEffect(()=>{
         getAllData()
     },[])
@@ -38,7 +27,6 @@ function Screen1({getAllData,allItem}){
         <div className="accordian-container">
             <Header/>
             {store.map((element)=>{
-                //console.log(element)
                 return(
                 <Accordion key ={element.movie_id} moviename={element.name} hallname={element.cinema_halls} link={element.poster} ></Accordion>
                 )
@@ -48,4 +36,4 @@ function Screen1({getAllData,allItem}){
 }
 
 
-export default connect(mapStateToProps,mapDispatchToProps)(Screen1);
+export default connect(mapStateToProps,mapDispatchToProps)(HomeScreen);

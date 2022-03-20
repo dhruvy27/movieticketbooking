@@ -1,9 +1,7 @@
-import React, { useState,useEffect } from "react";
+import React, {useEffect } from "react";
 import "./style/Seats.css";
-import { useDispatch } from "react-redux";
+import {selectedseatsaction,changestatusaction,unsuccessfullaction} from '../../store/cinemahallreducer'
 import { connect } from "react-redux";
-//import { changeStatus,successfullPayment } from "../../store/booking.js";
-// import {useSelector} from 'react-redux'
 const mapStateToProps = (state,{setSelectedSeat,
   selectedSeat,
   hall_id,
@@ -22,9 +20,9 @@ const mapStateToProps = (state,{setSelectedSeat,
 }
 const mapDispatchToProps = (dispatch,currentProps)=>{
   return {
-    successfullPayment:(payloadData)=>dispatch({type:"successfullPayment",payload:payloadData}),
-    unsuccessfullPayment:()=>dispatch({type:"unsuccessfullPayment"}),
-    changeStatus:(payloadData)=>dispatch({type:"changeStatus",payload:payloadData})
+    successfullPayment:(payloadData)=>dispatch(selectedseatsaction(payloadData)),
+    unsuccessfullPayment:()=>dispatch(unsuccessfullaction()),
+    changeStatus:(payloadData)=>dispatch(changestatusaction(payloadData))
   }
 }
 
@@ -40,9 +38,7 @@ function Seats({
   successfullPayment,
   confirmSeats
 }) {
-  // const dispatch = useDispatch();
   const allBookedSeats = allItem
-  console.log(noOFSeats)
   var arr =[]
   for(var i=1;i<=noOFSeats;i++){
     arr.push(i)
@@ -60,23 +56,8 @@ function Seats({
   }))
   }, []);
 
-
-  // const selectedSeats = useSelector((state)=>{
-  //   return state.selectedSeats
-  // })
-  // const confirmSeats =useSelector((state)=>{
-  //   return state.confirmSeats
-  // })
-  
-  // const seats = useSelector((state)=>{
-  //   return state.seats
-  // })
-
-
   const onSelected = (event) => {
-    // console.log(event)
     if (event.target.style.backgroundColor == "green") {
-      console.log(selectedSeat);
       setSelectedSeat(selectedSeat);
         changeStatus({
           id: event.target.dataset.value,
@@ -87,7 +68,6 @@ function Seats({
     } else {
       event.target.style.backgroundColor = "green";
       selectedSeat = [...selectedSeat, event.target.dataset.value];
-      console.log(selectedSeat);
       setSelectedSeat(selectedSeat);
       changeStatus({
           id: event.target.dataset.value,
